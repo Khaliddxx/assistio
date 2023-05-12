@@ -1,0 +1,28 @@
+:root {
+  background-color: #edf4fe;
+
+  --primary-color: #002f6c;
+  --secondary-color: #f5a65b;
+
+  --naturals-200: #edf4fe;
+  --naturals-300: #d3dce8;
+  --naturals-800: #34373c;
+  --naturals-900: #282a2e;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("./Assets/Fonts/Inter.ttf");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("./Assets/Fonts/Montserrat.ttf");
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 32px;
+  z-index: 1000;
+}

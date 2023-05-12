@@ -1,0 +1,112 @@
+.navbar {
+  z-index: 100;
+  padding: 0;
+  padding-left: 55px !important;
+  //   padding-right: 55px !important;
+  margin-top: 0;
+  background-color: var(--naturals-200);
+}
+
+.navbarWithBg {
+  .nav-item:hover,
+  .nav-item .navbar-nav:focus,
+  #navbarScrollingDropdown:hover,
+  #navbarScrollingDropdown:focus,
+  #navbarScrollingDropdownWhite:hover,
+  #navbarScrollingDropdownWhite:focus {
+    background-color: var(--secondary-color) !important;
+  }
+
+  .nav-item {
+    color: var(--primary-color);
+    border-radius: 8px;
+    transition: background-color 0.5s ease-out 100ms;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  #navbarScrollingDropdown {
+    color: var(--primary-color);
+    border-radius: 8px;
+    transition: var(--secondary-color) 0.5s ease-out 100ms;
+  }
+  #navbarScrollingDropdownWhite {
+    color: var(--primary-color);
+    border-radius: 8px;
+    transition: var(--secondary-color) 0.5s ease-out 100ms;
+  }
+}
+
+.iads-logo {
+  height: 60px;
+}
+
+.nav-items {
+  width: 73%;
+  margin: auto;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  text-align: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  align-self: flex-start;
+}
+
+.nav-item {
+  padding: 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .navbar {
+    padding-left: 8px !important;
+    padding-right: 16px !important;
+  }
+
+  .navbarWithOutBg {
+    .nav-item-Blue {
+      color: var(--primary-color) !important;
+    }
+    .nav-item-White {
+      color: var(--primary-color) !important;
+    }
+
+    #navbarScrollingDropdown {
+      color: var(--primary-color) !important;
+    }
+    #navbarScrollingDropdownWhite {
+      color: var(--primary-color) !important;
+    }
+  }
+
+  .nav-items {
+    justify-content: center;
+    padding: 0px 8px;
+    // padding-bottom: 50px !important;
+  }
+  //   .iads-logo {
+  //     height: 20px;
+  //     margin-left: 0px !important;
+  //   }
+
+  .navbar-collapse {
+    flex-direction: column;
+    padding-bottom: 32px !important;
+  }
+  .navbar-hamburger {
+    color: black !important;
+  }
+}
