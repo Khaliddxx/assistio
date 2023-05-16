@@ -13,6 +13,8 @@ import p6 from "../../Assets/Home/p6.svg";
 import p7 from "../../Assets/Home/p7.svg";
 import p8 from "../../Assets/Home/p8.svg";
 import p9 from "../../Assets/Home/p9.svg";
+import { Trans, useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 const ProcessCard = ({ img, text }) => {
   return (
@@ -24,6 +26,8 @@ const ProcessCard = ({ img, text }) => {
 };
 
 const Home = () => {
+  const { t } = useTranslation();
+  const currentLanguage = i18n.language;
   return (
     <div className="home-page">
       <div className="hero">
@@ -34,30 +38,34 @@ const Home = () => {
             transition={{ duration: 0.5 }}
             className="header-txt"
           >
+            <Trans components={{ span: <span />, br: <br /> }}>tagline</Trans>
+          </motion.h1>
+          {/* <motion.h1
+            initial={{ x: -500, y: 200, scale: 0.1 }}
+            animate={{ x: 0, y: 0, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="header-txt"
+          >
             Unlocking the <span className="inverted">Potantial</span> of
             Academic <span className="inverted">Research</span> and{" "}
             <span className="inverted">Analysis</span>
-          </motion.h1>
-          <motion.div
+          </motion.h1> */}
+          <motion.p
             initial={{ x: 500, scale: 0.1 }}
             animate={{ x: 0, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="description"
+            className="description text-align-right"
           >
-            At Assistio, we understand that academic research and analysis is
-            the key to unlocking the potential of any field. Our cutting-edge
-            services leverage the latest technologies and methodologies to
-            endure that you have the most up-to-date and reliable information at
-            your fingertips ✨
-          </motion.div>
+            {t("intro")}
+          </motion.p>
           <motion.div
             initial={{ scale: 0.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
             className="btns"
           >
-            <Button className="btn">Our Services</Button>
-            <Button className="btn btn2">About us</Button>
+            <Button className="btn">{t("cta1")}</Button>
+            <Button className="btn btn2">{t("cta2")}</Button>
           </motion.div>
         </div>
         <motion.div
@@ -75,13 +83,8 @@ const Home = () => {
           <img src={ensuring} alt="" />
         </div>
         <div className="right">
-          <h5>Ensuring your academic success!</h5>
-          <p>
-            We have worked on a range of projects over the years, from
-            small-scale research papers to large-scale data analysis. Our
-            portfolio includes case studies, statistical reports, and in-depth
-            research papers on a variety of topics.
-          </p>
+          <h5>{t("ensuringTitle")}</h5>
+          <p>{t("ensuringDesc")}</p>
         </div>
       </div>
 
@@ -92,7 +95,7 @@ const Home = () => {
           transition={{ duration: 0.5 }}
           className="header-txt"
         >
-          Assistio Research Process
+          {t("processTitle")}
         </motion.h1>
         <motion.p
           initial={{ x: 500, scale: 0.1 }}
@@ -100,19 +103,18 @@ const Home = () => {
           transition={{ duration: 0.5 }}
           className="header-txt"
         >
-          Assistio research process diagram provides a visual representation of
-          our step-by-step approach, which includes:
+          {t("processDesc")}
         </motion.p>
         <div className="process-cards">
-          <ProcessCard img={p1} text="Topic Selection" />
-          <ProcessCard img={p2} text="Proposal Writing" />
-          <ProcessCard img={p3} text="Literature Review" />
-          <ProcessCard img={p4} text="Methodology" />
-          <ProcessCard img={p5} text="Data Collection" />
-          <ProcessCard img={p6} text="Data Analysis" />
-          <ProcessCard img={p7} text="Results & Discussion" />
-          <ProcessCard img={p8} text="Conclusion & Recommendations" />
-          <ProcessCard img={p9} text="Manuscript Writing & Publications" />
+          <ProcessCard img={p1} text={t("service1Header")} />
+          <ProcessCard img={p2} text={t("service2Header")} />
+          <ProcessCard img={p3} text={t("service3Header")} />
+          <ProcessCard img={p4} text={t("service4Header")} />
+          <ProcessCard img={p5} text={t("service5Header")} />
+          <ProcessCard img={p6} text={t("service6Header")} />
+          <ProcessCard img={p7} text={t("service7Header")} />
+          <ProcessCard img={p8} text={t("service8Header")} />
+          <ProcessCard img={p9} text={t("service9Header")} />
         </div>
       </div>
     </div>
