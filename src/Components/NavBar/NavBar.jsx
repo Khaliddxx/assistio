@@ -8,15 +8,14 @@ import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 
 const NavBar = (props) => {
-  const [currentLanguage, setCurrentLanguage] = useState(
-    localStorage.getItem("language") || "en"
-  );
+  props.setCurrentLanguage(localStorage.getItem("language") || "en");
 
   const { t } = useTranslation();
 
   const onChange = (e) => {
     i18n.changeLanguage(e.target.value);
     localStorage.setItem("language", e.target.value);
+    props.setCurrentLanguage(e.target.value);
   };
 
   return (
@@ -57,10 +56,10 @@ const NavBar = (props) => {
               <select
                 onChange={onChange}
                 className="language"
-                value={currentLanguage}
+                value={props.currentLanguage}
               >
-                <option value="en">English</option>
-                <option value="ar">عربي</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="ar">🇸🇦 عربي</option>
               </select>
             </div>
           </Nav>

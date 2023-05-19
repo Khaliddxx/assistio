@@ -1,2 +1,53 @@
 .services-page {
+  .hero {
+    background-image: url("../../Assets/Services/header.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .overlay {
+    // background: #03070f;
+    background: linear-gradient(
+      180deg,
+      rgba(1, 47, 109, 0.5) 5.21%,
+      rgba(0, 61, 143, 0.45) 51.04%,
+      rgba(9, 85, 187, 0.15) 100%
+    );
+
+    width: 100vw;
+    height: 286px;
+  }
+
+  .header-title {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 58px;
+    line-height: 100.02%;
+    color: #002f6c;
+    text-shadow: 1px solid #edf4fe;
+    -webkit-text-stroke: 1px #edf4fe;
+    text-align: center;
+    padding-top: 184px;
+  }
+
+  .desc {
+    width: 70%;
+    margin: auto;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .services-page {
+    .header-title {
+      padding-top: 128px;
+    }
+    .desc {
+      width: 95%;
+    }
+  }
 }

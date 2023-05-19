@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.scss";
+import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import heroImg from "../../Assets/hero-image.svg";
@@ -14,7 +15,6 @@ import p7 from "../../Assets/Home/p7.svg";
 import p8 from "../../Assets/Home/p8.svg";
 import p9 from "../../Assets/Home/p9.svg";
 import { Trans, useTranslation } from "react-i18next";
-import i18n from "i18next";
 
 const ProcessCard = ({ img, text }) => {
   return (
@@ -27,7 +27,8 @@ const ProcessCard = ({ img, text }) => {
 
 const Home = () => {
   const { t } = useTranslation();
-  const currentLanguage = i18n.language;
+  const navigate = useNavigate();
+
   return (
     <div className="home-page">
       <div className="hero">
@@ -64,7 +65,9 @@ const Home = () => {
             transition={{ duration: 0.5 }}
             className="btns"
           >
-            <Button className="btn">{t("cta1")}</Button>
+            <Button onClick={() => navigate("/services")} className="btn">
+              {t("cta1")}
+            </Button>
             <Button className="btn btn2">{t("cta2")}</Button>
           </motion.div>
         </div>
@@ -115,6 +118,15 @@ const Home = () => {
           <ProcessCard img={p7} text={t("service7Header")} />
           <ProcessCard img={p8} text={t("service8Header")} />
           <ProcessCard img={p9} text={t("service9Header")} />
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button
+            style={{ marginBottom: "32px" }}
+            onClick={() => navigate("/services")}
+            className="btn"
+          >
+            {t("viewMore")}
+          </Button>
         </div>
       </div>
     </div>

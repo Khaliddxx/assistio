@@ -11,12 +11,13 @@ import i18n from "i18next";
 import { initReactI18next, useTranslation } from "react-i18next";
 
 import { motion } from "framer-motion";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 import { translationEn } from "./Content/translationEn";
 import { translationAr } from "./Content/translationAr";
 
 import { useEffect } from "react";
+import Footer from "./Components/Footer/Footer";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -36,20 +37,24 @@ function App() {
     }
   }, []);
 
-  const currentLanguage = i18n.language;
+  const [currentLanguage, setCurrentLanguage] = useState(null);
   return (
     <Suspense fallback="Loading...">
       <div className={`App ${currentLanguage === "ar" ? "arabic" : ""}`}>
-        <NavBar />
+        <NavBar
+          currentLanguage={currentLanguage}
+          setCurrentLanguage={setCurrentLanguage}
+        />
         <div>
-          <motion.div
+          <motion.a
             animate={{ scale: [0.8, 1, 0.8] }}
             initial={{ scale: 0.8 }}
             transition={{ repeat: Infinity, duration: 3 }}
             className="whatsapp"
+            href="https://wa.me/+447405650178?text=Hello! I would like some of your amazing help with my research!"
           >
             <img src={whatsapp} alt="whatsapp" />
-          </motion.div>
+          </motion.a>
         </div>
         <Router>
           <Routes>
@@ -65,6 +70,7 @@ function App() {
           ></Route> */}
           </Routes>
         </Router>
+        <Footer />
       </div>
     </Suspense>
   );
